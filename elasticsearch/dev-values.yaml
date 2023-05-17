@@ -202,7 +202,7 @@ image:
 security:
   ## @param security.enabled Enable X-Pack Security settings
   ##
-  enabled: true
+  enabled: false
   ## @param security.elasticPassword Password for 'elastic' user
   ## Ref: https://github.com/bitnami/containers/tree/main/bitnami/elasticsearch#security
   ##
@@ -452,7 +452,7 @@ master:
   masterOnly: true
   ## @param master.replicaCount Number of master-elegible replicas to deploy
   ##
-  replicaCount: 2
+  replicaCount: 1
   ## @param master.nameOverride String to partially override elasticsearch.master.fullname
   ##
   nameOverride: ""
@@ -472,11 +472,6 @@ master:
   ## @param master.resources.limits The resources limits for the master-elegible containers
   ## @param master.resources.requests [object] The requested resources for the master-elegible containers
   ##
-  resources:
-    limits: {}
-    requests:
-      cpu: 25m
-      memory: 256Mi
   ## @param master.heapSize Elasticsearch master-eligible node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
@@ -547,8 +542,7 @@ master:
   ## @param master.nodeSelector Node labels for master-elegible pods assignment
   ## ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector: 
-    k8s.scaleway.com/pool-name: development
+  nodeSelector: {} 
   ## @param master.tolerations Tolerations for master-elegible pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
@@ -745,7 +739,7 @@ master:
 data:
   ## @param data.replicaCount Number of data-only replicas to deploy
   ##
-  replicaCount: 2
+  replicaCount: 0
   ## @param data.nameOverride String to partially override elasticsearch.data.fullname
   ##
   nameOverride: ""
@@ -765,11 +759,6 @@ data:
   ## @param data.resources.limits The resources limits for the data containers
   ## @param data.resources.requests [object] The requested resources for the data containers
   ##
-  resources:
-    limits: {}
-    requests:
-      cpu: 25m
-      memory: 2048Mi
   ## @param data.heapSize Elasticsearch data node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
@@ -840,8 +829,7 @@ data:
   ## @param data.nodeSelector Node labels for data pods assignment
   ## ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector: 
-     k8s.scaleway.com/pool-name: development
+  nodeSelector: {} 
   ## @param data.tolerations Tolerations for data pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
@@ -1038,7 +1026,7 @@ data:
 coordinating:
   ## @param coordinating.replicaCount Number of coordinating-only replicas to deploy
   ##
-  replicaCount: 2
+  replicaCount: 1
   ## @param coordinating.nameOverride String to partially override elasticsearch.coordinating.fullname
   ##
   nameOverride: ""
@@ -1058,11 +1046,6 @@ coordinating:
   ## @param coordinating.resources.limits The resources limits for the coordinating-only containers
   ## @param coordinating.resources.requests [object] The requested resources for the coordinating-only containers
   ##
-  resources:
-    limits: {}
-    requests:
-      cpu: 25m
-      memory: 256Mi
   ## @param coordinating.heapSize Elasticsearch coordinating node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
@@ -1133,8 +1116,7 @@ coordinating:
   ## @param coordinating.nodeSelector Node labels for coordinating-only pods assignment
   ## ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector: 
-    k8s.scaleway.com/pool-name: development
+  nodeSelector: {} 
   ## @param coordinating.tolerations Tolerations for coordinating-only pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
@@ -1295,7 +1277,7 @@ ingest:
   enabled: false
   ## @param ingest.replicaCount Number of ingest-only replicas to deploy
   ##
-  replicaCount: 2
+  replicaCount: 1
   ## @param ingest.nameOverride String to partially override elasticsearch.ingest.fullname
   ##
   nameOverride: ""
@@ -1321,11 +1303,6 @@ ingest:
   ## @param ingest.resources.limits The resources limits for the ingest-only containers
   ## @param ingest.resources.requests [object] The requested resources for the ingest-only containers
   ##
-  resources:
-    limits: {}
-    requests:
-      cpu: 25m
-      memory: 256Mi
   ## @param ingest.heapSize Elasticsearch ingest-only node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
@@ -1396,8 +1373,7 @@ ingest:
   ## @param ingest.nodeSelector Node labels for ingest-only pods assignment
   ## ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector: 
-    k8s.scaleway.com/pool-name: development
+  nodeSelector: {} 
   ## @param ingest.tolerations Tolerations for ingest-only pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
@@ -1823,8 +1799,7 @@ metrics:
   ## @param metrics.nodeSelector Metrics Node labels for pod assignment
   ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector: 
-    k8s.scaleway.com/pool-name: development
+  nodeSelector: {} 
   ## @param metrics.tolerations Metrics Tolerations for pod assignment
   ## Ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##

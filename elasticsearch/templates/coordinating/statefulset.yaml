@@ -230,7 +230,7 @@ spec:
           {{- end }}
           volumeMounts:
             - name: data
-              mountPath: /bitnami/elasticsearch/data
+              mountPath: /bitnami/elasticsearch
             {{- if .Values.config }}
             - mountPath: /opt/bitnami/elasticsearch/config/elasticsearch.yml
               name: config
